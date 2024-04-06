@@ -10,18 +10,18 @@ client = AzureOpenAI(
     )
 
     
-deployment_name='gpt-35-turbo' #This will correspond to the custom name you chose for your deployment when you deployed a model. Use a gpt-35-turbo-instruct deployment. 
+deployment_name='gpt-4-32k' #This will correspond to the custom name you chose for your deployment when you deployed a model. Use a gpt-35-turbo-instruct deployment. 
     
-# Send a completion call to generate an answer
-print('Sending a test completion job')
-start_phrase = 'Write a tagline for an ice cream shop. '
-response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
-print(response)
-print(start_phrase+response.choices[0].text)
+# # Send a completion call to generate an answer
+# print('Sending a test completion job')
+# start_phrase = 'Write a tagline for an ice cream shop. '
+# response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
+# print(response)
+# print(start_phrase+response.choices[0].text)
 
 print('Sending a test chat message')
 response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
+    model=deployment_name, # model = "deployment_name".
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "How do I build the best ideas for a hackathon?"},

@@ -1,11 +1,7 @@
 """
 RAG todo:
-
-- sample data sources
-- chunk data sources
-- retriever
-- chatgpt model
 - simple gradio frontend
+- add message histora
 - Add guardrail
 - Add evaluation metrics
 """
@@ -27,7 +23,7 @@ class RAG:
         return msg + "\nContext:\n" + docs[0].page_content
 
     def send_msg(self, msg):
-        self.chatter.send_chat(msg)
+        return self.chatter.send_chat(msg)
 
 if __name__ == "__main__":
     rag = RAG()
